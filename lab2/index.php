@@ -61,12 +61,6 @@
             }
         } else if ($_POST['translate-btn']) {
             require './task1/translate.php';
-            $checkedWord = mb_strtolower($_POST['translate-input'],'UTF-8');
-            if ($words[$checkedWord]) {
-                echo '<p style="margin: 10px 0;">Перевод: ' . $words[$checkedWord] . '</p>';
-            } else {
-                echo '<p style="margin: 10px 0;">Упс... Я еще не знаю перевода этого слова...</p>';
-            }
         }
     ?>
     </form>

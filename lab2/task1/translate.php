@@ -26,5 +26,15 @@
         </label>
 
         <input type="submit" value="Перевести" name="translate-btn">
+        <?
+            $checkedWord = mb_strtolower($_POST['translate-input'],'UTF-8');
+            if ($checkedWord != '') {
+                if ($words[$checkedWord]) {
+                    echo '<p style="margin: 10px 0;">Перевод: ' . $words[$checkedWord] . '</p>';
+                } else {
+                    echo '<p style="margin: 10px 0;">Упс... Я еще не знаю перевода этого слова:(</p>';
+                }
+            }
+        ?>
     </fieldset>
 </form>

@@ -17,7 +17,7 @@
 
 ?>
 
-<form method="post">
+<form method="post" style="border: none;">
     <fieldset>
         <legend>Переводчик</legend>
         <label for="">
@@ -27,7 +27,12 @@
 
         <input type="submit" value="Перевести" name="translate-btn">
         <?php
-            $checkedWord = mb_strtolower($_POST['translate-input'],'UTF-8');
+            /* 
+                Берется значение из поле input в кодировке UTF-8,
+                переводится в нижний регистр, после удаляются 
+                пробелы в начале и конце строки, если они есть.
+            */
+            $checkedWord = trim(mb_strtolower($_POST['translate-input'],'UTF-8'));
             if ($checkedWord != '') {
                 if ($words[$checkedWord]) {
                     echo '<p style="margin: 10px 0;">Перевод: ' . $words[$checkedWord] . '</p>';
